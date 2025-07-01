@@ -20,26 +20,19 @@ def ping_supabase():
 @app.get("/database_info")
 def get_database_info():
     try:
-        # Execute a query to get database name
-        response = supabase.rpc("execute_sql", {
-            "sql_query": "SELECT current_database() as db_name"
-        }).execute()
-        
-        # If the RPC function doesn't exist, we need a different approach
-        if "error" in response:
-            # Try with a table query to pg_database instead
-            response = supabase.table("pg_database").select("datname").single().execute()
-            return {"database": response.data["datname"]}
-        
-        return {"database": response.data[0]["db_name"]}
-    except Exception as e:
-        print(f"Database info error: {str(e)}")
-        
-        # Fallback - in Supabase, the database name is often derived from the project URL
+        # For Supabase, we can derive the database info from the URL
         project_id = supabase_url.split("//")[1].split(".")[0]
         return {
+            "database": "postgres",
+            "project_id": project_id,
+            "host": supabase_url,
+            "status": "connected"
+        }
+    except Exception as e:
+        print(f"Database info error: {str(e)}")
+        return {
             "error": str(e),
-            "database": f"postgres (Project ID: {project_id})"
+            "database": "unknown"
         }
 
 @app.get("/hello")
@@ -74,7 +67,7 @@ def get_data():
 def get_all_records():
     try:
         # Replace 'your_table' with the actual table name in public schema
-        response = supabase.table("SDLC_Models").select("*").execute()
+        response = supabase.table("Project_Tracking_System").select("*").execute()
         print(response)
         return response.data
     except Exception as e:
