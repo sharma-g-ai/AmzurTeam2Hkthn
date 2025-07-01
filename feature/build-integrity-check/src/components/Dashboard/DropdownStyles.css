@@ -1,0 +1,84 @@
+/* Dropdown Styles */
+.dropdown-container {
+  margin-bottom: 20px;
+  padding: 16px;
+  border: 1px solid #dee2e6;
+  border-radius: 6px;
+  background-color: white;
+}
+
+.dropdown-container.disabled {
+  background-color: #f8f9fa;
+  opacity: 0.7;
+}
+
+.dropdown-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.dropdown-header h4 {
+  margin: 0;
+  font-size: 1rem;
+  color: #333;
+}
+
+.add-button {
+  background-color: #28a745;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 4px;
+  font-size: 12px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.add-button:hover {
+  background-color: #218838;
+}
+
+.dropdown-select {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  font-size: 14px;
+  background-color: white;
+  cursor: pointer;
+}
+
+.dropdown-select:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+.dropdown-select:disabled {
+  background-color: #e9ecef;
+  cursor: not-allowed;
+}
+
+.disabled-message,
+.no-data-message {
+  font-size: 14px;
+  color: #6c757d;
+  font-style: italic;
+  margin: 8px 0;
+}
+
+.selection-info {
+  margin-top: 12px;
+  padding: 8px 12px;
+  background-color: #f0f8ff;
+  border: 1px solid #bee5eb;
+  border-radius: 4px;
+}
+
+.selection-info p {
+  margin: 2px 0;
+  font-size: 13px;
+  color: #0c5460;
+}

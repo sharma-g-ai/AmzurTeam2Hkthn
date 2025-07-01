@@ -1,0 +1,83 @@
+/* CRUD Modal Styles */
+.crud-content {
+  min-height: 200px;
+}
+
+.crud-info {
+  background-color: #d1ecf1;
+  border: 1px solid #bee5eb;
+  border-radius: 4px;
+  padding: 12px;
+  margin-bottom: 20px;
+  font-size: 14px;
+  color: #0c5460;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 500;
+  color: #333;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0 0 0 2px rgba(0, 123, 255, 0.25);
+}
+
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 24px;
+  padding-top: 16px;
+  border-top: 1px solid #dee2e6;
+}
+
+.form-actions button {
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-size: 14px;
+  cursor: pointer;
+  border: 1px solid;
+  min-width: 80px;
+}
+
+.form-actions button[type="button"] {
+  background-color: #6c757d;
+  color: white;
+  border-color: #6c757d;
+}
+
+.form-actions button[type="button"]:hover {
+  background-color: #5a6268;
+}
+
+.form-actions button[type="submit"] {
+  background-color: #28a745;
+  color: white;
+  border-color: #28a745;
+}
+
+.form-actions button[type="submit"]:hover:not(:disabled) {
+  background-color: #218838;
+}
+
+.form-actions button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}

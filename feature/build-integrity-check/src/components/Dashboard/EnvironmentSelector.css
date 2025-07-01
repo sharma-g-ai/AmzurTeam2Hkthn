@@ -1,0 +1,77 @@
+/* Environment Selector Styles */
+.environment-selector {
+  margin-bottom: 24px;
+  padding: 20px;
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  background-color: #f8f9fa;
+}
+
+.environment-selector h3 {
+  margin: 0 0 16px 0;
+  color: #333;
+  font-size: 1.1rem;
+}
+
+.environment-options {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.environment-option {
+  display: flex;
+  align-items: center;
+  padding: 12px 16px;
+  border: 2px solid #dee2e6;
+  border-radius: 6px;
+  background-color: white;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.environment-option:hover {
+  border-color: #007bff;
+  background-color: #f0f8ff;
+}
+
+.environment-option input[type="radio"] {
+  margin-right: 10px;
+  width: 16px;
+  height: 16px;
+}
+
+.environment-option input[type="radio"]:checked + .environment-label {
+  font-weight: 600;
+  color: #007bff;
+}
+
+.environment-option:has(input:checked) {
+  border-color: #007bff;
+  background-color: #e7f3ff;
+}
+
+.environment-label {
+  font-size: 14px;
+  color: #333;
+}
+
+.selected-environment {
+  padding: 12px 16px;
+  background-color: #d4edda;
+  border: 1px solid #c3e6cb;
+  border-radius: 6px;
+  margin-top: 12px;
+}
+
+.selected-environment p {
+  margin: 0;
+  font-size: 14px;
+  color: #155724;
+}
+
+.development-notice {
+  margin-top: 8px !important;
+  font-style: italic;
+}
