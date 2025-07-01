@@ -1,0 +1,308 @@
+/* QA Engineer Dashboard Styles */
+.qa-dashboard-container {
+    min-height: 100vh;
+    background-color: #f8fafc;
+    padding: 2rem;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.qa-dashboard-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.qa-dashboard-header h1 {
+    color: #4472C4;
+    font-size: 2rem;
+    font-weight: 600;
+    margin: 0 0 0.5rem 0;
+}
+
+.qa-dashboard-subtitle {
+    color: #6b7280;
+    font-size: 1rem;
+    margin: 0;
+}
+
+.qa-dashboard-content {
+    max-width: 800px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    padding: 2rem;
+}
+
+/* Application URL Section */
+.application-url-section {
+    margin-bottom: 2rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.url-label {
+    display: block;
+    font-weight: 600;
+    color: #374151;
+    margin-bottom: 0.5rem;
+    font-size: 0.875rem;
+}
+
+.url-input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 0.875rem;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.url-input:focus {
+    outline: none;
+    border-color: #4472C4;
+    box-shadow: 0 0 0 3px rgba(68, 114, 196, 0.1);
+}
+
+/* Testing Categories */
+.testing-categories {
+    margin-bottom: 1.5rem;
+}
+
+.testing-category {
+    margin-bottom: 1.5rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.category-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.25rem;
+    background-color: #f9fafb;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.category-info {
+    flex: 1;
+}
+
+.category-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #374151;
+    margin: 0 0 0.25rem 0;
+}
+
+.category-description {
+    font-size: 0.75rem;
+    color: #6b7280;
+    margin: 0;
+}
+
+.select-all-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: #f3f4f6;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    color: #4472C4;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.select-all-btn:hover {
+    background: #e5e7eb;
+    border-color: #4472C4;
+}
+
+.select-all-btn.selected {
+    background: #4472C4;
+    color: white;
+    border-color: #4472C4;
+}
+
+.dropdown-arrow {
+    font-size: 0.75rem;
+    transition: transform 0.2s ease;
+}
+
+/* Tests List */
+.tests-list {
+    padding: 1rem 1.25rem;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 0.75rem;
+}
+
+.test-item {
+    display: flex;
+    align-items: center;
+}
+
+.test-checkbox {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 0.875rem;
+    color: #374151;
+    user-select: none;
+}
+
+.test-checkbox input[type="checkbox"] {
+    display: none;
+}
+
+.checkmark {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    border: 2px solid #d1d5db;
+    border-radius: 4px;
+    margin-right: 0.75rem;
+    position: relative;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+}
+
+.test-checkbox:hover .checkmark {
+    border-color: #4472C4;
+}
+
+.test-checkbox input[type="checkbox"]:checked + .checkmark {
+    background-color: #4472C4;
+    border-color: #4472C4;
+}
+
+.test-checkbox input[type="checkbox"]:checked + .checkmark::after {
+    content: '✓';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.test-name {
+    flex: 1;
+    line-height: 1.4;
+}
+
+/* Selection Summary */
+.selection-summary {
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+    background-color: #f8fafc;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+}
+
+.selected-count {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #4472C4;
+    background: white;
+    padding: 0.5rem 1rem;
+    border-radius: 6px;
+    border: 1px solid #e5e7eb;
+}
+
+/* Action Buttons */
+.qa-dashboard-actions {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #e5e7eb;
+}
+
+.btn {
+    padding: 0.75rem 2rem;
+    border-radius: 8px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: none;
+    min-width: 120px;
+}
+
+.btn-cancel {
+    background: #f3f4f6;
+    color: #374151;
+    border: 1px solid #d1d5db;
+}
+
+.btn-cancel:hover {
+    background: #e5e7eb;
+    border-color: #9ca3af;
+}
+
+.btn-proceed {
+    background: #8b5cf6;
+    color: white;
+    border: 1px solid #8b5cf6;
+}
+
+.btn-proceed:hover {
+    background: #7c3aed;
+    border-color: #7c3aed;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(139, 92, 246, 0.3);
+}
+
+.btn-proceed:disabled {
+    background: #d1d5db;
+    color: #9ca3af;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .qa-dashboard-container {
+        padding: 1rem;
+    }
+
+    .qa-dashboard-content {
+        padding: 1.5rem;
+    }
+
+    .category-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .tests-list {
+        grid-template-columns: 1fr;
+        gap: 0.5rem;
+    }
+
+    .qa-dashboard-actions {
+        flex-direction: column;
+    }
+
+    .btn {
+        width: 100%;
+    }
+}
+
+/* Animation for smooth interactions */
+.testing-category {
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.testing-category:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
