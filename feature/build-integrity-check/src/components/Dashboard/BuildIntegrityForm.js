@@ -181,18 +181,11 @@ const BuildIntegrityForm = () => {
         setTouched(allTouched);
 
         if (validateForm()) {
-            // Simulate validation process - you can add actual validation logic here
-            const validationSuccess = Math.random() > 0.5; // Random success/failure for demo
-
-            if (validationSuccess) {
-                console.log('Performing validity check...', formData);
-                setShowValidationModal(true);
-            } else {
-                console.log('Validation failed...', formData);
-                setShowValidationFailedModal(true);
-            }
+            // All required fields are filled correctly, proceed with success
+            console.log('Performing validity check...', formData);
+            setShowValidationModal(true);
         } else {
-            // Show validation failed modal instead of alert for form validation errors
+            // Show validation failed modal for form validation errors
             setShowValidationFailedModal(true);
         }
     };
@@ -450,7 +443,7 @@ const BuildIntegrityForm = () => {
                             <select
                                 id="sdlcModel"
                                 name="sdlcModel"
-                                className="form-control"
+                                className={`form-control ${errors.sdlcModel && touched.sdlcModel ? 'error' : ''}`}
                                 value={formData.sdlcModel}
                                 onChange={handleInputChange}
                                 onBlur={handleBlur}
@@ -490,7 +483,7 @@ const BuildIntegrityForm = () => {
                             <select
                                 id="sdlcDocuments"
                                 name="sdlcDocuments"
-                                className="form-control"
+                                className={`form-control ${errors.sdlcDocuments && touched.sdlcDocuments ? 'error' : ''}`}
                                 value={formData.sdlcDocuments}
                                 onChange={handleInputChange}
                                 onBlur={handleBlur}
@@ -547,7 +540,7 @@ const BuildIntegrityForm = () => {
                                 type="text"
                                 id="buildVersion"
                                 name="buildVersion"
-                                className="form-control text-input"
+                                className={`form-control text-input ${errors.buildVersion && touched.buildVersion ? 'error' : ''}`}
                                 placeholder="Enter Build Version"
                                 value={formData.buildVersion}
                                 onChange={handleInputChange}
@@ -579,7 +572,7 @@ const BuildIntegrityForm = () => {
                         <select
                             id="projectManagement"
                             name="projectManagement"
-                            className="form-control"
+                            className={`form-control ${errors.projectManagement && touched.projectManagement ? 'error' : ''}`}
                             value={formData.projectManagement}
                             onChange={handleInputChange}
                             onBlur={handleBlur}
@@ -601,7 +594,7 @@ const BuildIntegrityForm = () => {
                         <select
                             id="environment"
                             name="environment"
-                            className="form-control"
+                            className={`form-control ${errors.environment && touched.environment ? 'error' : ''}`}
                             value={formData.environment}
                             onChange={handleInputChange}
                             onBlur={handleBlur}
@@ -624,7 +617,7 @@ const BuildIntegrityForm = () => {
                             type="url"
                             id="applicationUrl"
                             name="applicationUrl"
-                            className="form-control text-input"
+                            className={`form-control text-input ${errors.applicationUrl && touched.applicationUrl ? 'error' : ''}`}
                             placeholder="Enter Application URL"
                             value={formData.applicationUrl}
                             onChange={handleInputChange}
@@ -641,7 +634,7 @@ const BuildIntegrityForm = () => {
                         <textarea
                             id="testObjective"
                             name="testObjective"
-                            className="form-control textarea"
+                            className={`form-control textarea ${errors.testObjective && touched.testObjective ? 'error' : ''}`}
                             placeholder="Enter a summary of the build and any important notes..."
                             maxLength="5000"
                             value={formData.testObjective}
@@ -743,7 +736,7 @@ const BuildIntegrityForm = () => {
 
                             <h2 className="modal-title error-title">Build Verification Failed</h2>
 
-                            <p className="modal-message error-message">
+                            <p className="modal-message modal-error-message">
                                 The verification process could not be completed successfully. Please check your build settings and try again.
                             </p>
 
