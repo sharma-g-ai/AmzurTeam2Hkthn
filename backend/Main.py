@@ -1,39 +1,19 @@
+import os
+from dotenv import load_dotenv
 from fastapi import FastAPI
 from supabase import create_client, Client
 
 app = FastAPI()
 
+load_dotenv()
 
 
-supabase_url = "https://hzsxtccacfzmcbcuejyj.supabase.co"
-supabase_key = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imh6c3h0Y2NhY2Z6bWNiY3VlanlqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NTEzNTEzODUsImV4cCI6MjA2NjkyNzM4NX0.SCDklZUgFmY7cwU3J_9Xx3KEUxbYHazu5Cw7c5nu7rg"
-supabase = create_client(supabase_url, supabase_key)
+SUPABASE_URL = os.getenv("SUPABASE_URL")
+SUPABASE_KEY = os.getenv("SUPABASE_KEY")
+
+supabase = create_client(SUPABASE_URL, SUPABASE_KEY)
 
 
-@app.get("/ping")
-def ping_supabase():
-    if supabase:
-        return {"status": "initialized"}
-    return {"status": "not initialized"}
-
-
-@app.get("/database_info")
-def get_database_info():
-    try:
-        # For Supabase, we can derive the database info from the URL
-        project_id = supabase_url.split("//")[1].split(".")[0]
-        return {
-            "database": "postgres",
-            "project_id": project_id,
-            "host": supabase_url,
-            "status": "connected"
-        }
-    except Exception as e:
-        print(f"Database info error: {str(e)}")
-        return {
-            "error": str(e),
-            "database": "unknown"
-        }
 
 @app.get("/hello")
 def read_hello():
@@ -58,6 +38,36 @@ def get_data():
     try:
         # Use table() method - don't mix query() and select()
         response = supabase.table("SDLC_Models").select("*").execute()
+        return response.data
+    except Exception as e:
+        print(f"SDLC_Models error: {str(e)}")
+        return {"error": str(e)}
+
+@app.get("/document_types")
+def get_data():
+    try:
+        # Use table() method - don't mix query() and select()
+        response = supabase.table("Document_Types").select("*").execute()
+        return response.data
+    except Exception as e:
+        print(f"SDLC_Models error: {str(e)}")
+        return {"error": str(e)}
+
+@app.get("/environments")
+def get_data():
+    try:
+        # Use table() method - don't mix query() and select()
+        response = supabase.table("Environment").select("*").execute()
+        return response.data
+    except Exception as e:
+        print(f"SDLC_Models error: {str(e)}")
+        return {"error": str(e)}
+
+@app.get("/project_tracking_systems")
+def get_data():
+    try:
+        # Use table() method - don't mix query() and select()
+        response = supabase.table("Project_Tracking_System").select("*").execute()
         return response.data
     except Exception as e:
         print(f"SDLC_Models error: {str(e)}")
