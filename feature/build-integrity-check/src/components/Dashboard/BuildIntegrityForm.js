@@ -403,14 +403,14 @@ const BuildIntegrityForm = () => {
     const recommendedTestingTypes = [
         {
             id: 'user-acceptance',
-            name: 'User Acceptance Testing',
-            description: 'User acceptance Testing Securising, Testing',
+            name: 'Unit Testing',
+            description: 'Unit Testing Securising, Testing',
             recommended: true
         },
         {
             id: 'security',
-            name: 'Security Testing',
-            description: 'Feack Accepand type Teshbrting',
+            name: 'Sanity Testing',
+            description: 'A sanity test is a quick check performed after receiving a new build to ensure that critical functionalities are working as expected.',
             recommended: false
         }
     ];
@@ -419,7 +419,7 @@ const BuildIntegrityForm = () => {
         <div className="build-integrity-form-container">
             {/* Header */}
             <div className="form-header">
-                <button 
+                <button
                     className="back-button"
                     onClick={handleBackToDashboard}
                     title="Back to AI Test Dashboard"
