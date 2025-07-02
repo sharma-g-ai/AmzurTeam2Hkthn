@@ -1,0 +1,583 @@
+/* Testing Document Details Modal Styles */
+.testing-docs-details-modal {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(25, 118, 210, 0.18);
+    padding: 0 0 24px 0;
+    min-width: 340px;
+    max-width: 95vw;
+    min-height: 340px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    animation: bic-modal-fadein 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.testing-docs-details-title {
+    font-size: 1.13rem;
+    font-weight: 600;
+    color: #1976d2;
+    margin: 18px 28px 2px 28px;
+}
+
+.testing-docs-details-size {
+    font-size: 0.98rem;
+    color: #888;
+    margin: 0 28px 10px 28px;
+}
+
+.testing-docs-details-meta {
+    display: flex;
+    justify-content: space-between;
+    margin: 18px 28px 16px 28px;
+    font-size: 1.01rem;
+    color: #444;
+    gap: 18px;
+}
+
+.testing-docs-details-meta-col {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    min-width: 110px;
+}
+
+.testing-docs-details-meta-label {
+    color: #888;
+    font-size: 0.97rem;
+    margin-bottom: 2px;
+}
+
+.testing-docs-details-meta-value {
+    color: #1976d2;
+    font-weight: 600;
+    font-size: 1.04rem;
+}
+
+.testing-docs-details-meta {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 28px 16px 28px;
+    font-size: 0.98rem;
+    color: #444;
+}
+
+.testing-docs-details-meta b {
+    color: #1976d2;
+    font-weight: 600;
+}
+
+.testing-docs-details-actions {
+    display: flex;
+    gap: 16px;
+    margin: 0 28px 0 28px;
+    margin-bottom: 10px;
+}
+
+.testing-docs-details-actions .primary {
+    background: #1565c0;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 22px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.18s;
+    box-shadow: 0 2px 8px rgba(21, 101, 192, 0.08);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.testing-docs-details-actions .primary:hover {
+    background: #0d47a1;
+}
+
+.testing-docs-details-actions .secondary {
+    background: #f5f5f5;
+    color: #333;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    padding: 8px 22px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.15s, border 0.15s;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.testing-docs-details-actions .secondary:hover {
+    background: #e3e3e3;
+    border-color: #bdbdbd;
+}
+
+.testing-docs-details-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 28px 0 28px;
+    margin-top: 10px;
+}
+
+.testing-docs-details-footer .primary {
+    background: #1565c0;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 22px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.18s;
+    box-shadow: 0 2px 8px rgba(21, 101, 192, 0.08);
+}
+
+.testing-docs-details-footer .primary:hover {
+    background: #0d47a1;
+}
+
+.testing-docs-details-footer .link {
+    background: none;
+    color: #1976d2;
+    border: none;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: underline;
+    padding: 0;
+}
+
+.testing-docs-details-footer .link:hover {
+    color: #0d47a1;
+}
+
+/* Testing Documents Modal Styles */
+.testing-docs-modal {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 8px 32px rgba(25, 118, 210, 0.18);
+    padding: 0 0 24px 0;
+    min-width: 340px;
+    max-width: 95vw;
+    min-height: 220px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    animation: bic-modal-fadein 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.testing-docs-header {
+    background: #1976d2;
+    color: #fff;
+    font-size: 1.18rem;
+    font-weight: 600;
+    padding: 18px 28px 12px 28px;
+    border-radius: 12px 12px 0 0;
+    border-bottom: 1.5px solid #e3f0fd;
+    letter-spacing: 0.2px;
+}
+
+.testing-docs-desc {
+    color: #444;
+    font-size: 1.04rem;
+    padding: 12px 28px 0 28px;
+    margin-bottom: 6px;
+}
+
+.testing-docs-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 8px 18px 0 18px;
+}
+
+.testing-docs-item {
+    display: flex;
+    align-items: center;
+    background: #f8fafc;
+    border-radius: 8px;
+    padding: 12px 16px;
+    box-shadow: 0 1px 4px rgba(25, 118, 210, 0.06);
+    cursor: pointer;
+    transition: background 0.15s;
+    border: 1.2px solid #e3f0fd;
+}
+
+.testing-docs-item:hover {
+    background: #e3f0fd;
+}
+
+.testing-docs-icon {
+    font-size: 1.45rem;
+    margin-right: 14px;
+    color: #1976d2;
+}
+
+.testing-docs-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.testing-docs-title {
+    font-size: 1.07rem;
+    font-weight: 600;
+    color: #1976d2;
+}
+
+.testing-docs-sub {
+    font-size: 0.97rem;
+    color: #888;
+    margin-top: 2px;
+}
+
+.testing-docs-arrow {
+    font-size: 1.25rem;
+    color: #bdbdbd;
+    margin-left: 10px;
+}
+
+.testing-docs-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    padding: 18px 28px 0 28px;
+}
+
+.testing-docs-actions .primary {
+    background: #1565c0;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 22px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.18s;
+    box-shadow: 0 2px 8px rgba(21, 101, 192, 0.08);
+}
+
+.testing-docs-actions .primary:hover {
+    background: #0d47a1;
+}
+
+.testing-docs-actions .secondary {
+    background: #f5f5f5;
+    color: #333;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    padding: 8px 22px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.15s, border 0.15s;
+}
+
+.testing-docs-actions .secondary:hover {
+    background: #e3e3e3;
+    border-color: #bdbdbd;
+}
+
+/* Modal Overlay: covers the whole screen and dims background */
+.bic-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.35);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+    transition: background 0.2s;
+}
+
+/* Modal Box */
+.bic-modal {
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.22);
+    padding: 36px 36px 28px 36px;
+    min-width: 350px;
+    max-width: 95vw;
+    min-height: 180px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: bic-modal-fadein 0.22s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.bic-modal-close {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    background: none;
+    border: none;
+    font-size: 1.6rem;
+    color: #888;
+    cursor: pointer;
+    transition: color 0.15s;
+    z-index: 1;
+}
+
+.bic-modal-icon-success {
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bic-modal-title {
+    font-size: 1.28rem;
+    font-weight: 700;
+    margin-bottom: 6px;
+    color: #222;
+    text-align: center;
+}
+
+.bic-modal-desc {
+    font-size: 1.07rem;
+    color: #444;
+    margin-bottom: 22px;
+    text-align: center;
+}
+
+.bic-modal-actions {
+    display: flex;
+    gap: 16px;
+    width: 100%;
+    justify-content: center;
+    margin-top: 8px;
+}
+
+.bic-modal-actions .primary {
+    background: #1565c0;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 22px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.18s;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    box-shadow: 0 2px 8px rgba(21, 101, 192, 0.08);
+}
+
+.bic-modal-actions .primary:hover {
+    background: #0d47a1;
+}
+
+.bic-modal-actions .secondary {
+    background: #f5f5f5;
+    color: #333;
+    border: 1px solid #d1d5db;
+    border-radius: 6px;
+    padding: 8px 22px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.15s, border 0.15s;
+}
+
+.bic-modal-actions .secondary:hover {
+    background: #e3e3e3;
+    border-color: #bdbdbd;
+}
+
+@keyframes bic-modal-fadein {
+    from {
+        opacity: 0;
+        transform: translateY(30px) scale(0.98);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.bic-form-container {
+    background: linear-gradient(135deg, #f8fafc 0%, #e3f0fd 100%);
+    border-radius: 16px;
+    box-shadow: 0 6px 32px rgba(25, 118, 210, 0.10), 0 1.5px 6px rgba(0, 0, 0, 0.06);
+    max-width: 520px;
+    margin: 48px auto;
+    padding: 36px 40px 24px 40px;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    border: 1.5px solid #b6d4fe;
+    transition: box-shadow 0.2s;
+}
+
+.bic-form-header {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: #fff;
+    background: linear-gradient(90deg, #1976d2 60%, #43a047 100%);
+    border-radius: 12px 12px 0 0;
+    padding: 18px 24px 16px 24px;
+    margin: -36px -40px 32px -40px;
+    border-bottom: 2px solid #b6d4fe;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.5px;
+    box-shadow: 0 2px 8px rgba(25, 118, 210, 0.08);
+}
+
+.bic-form-body {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+.bic-form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+    margin-bottom: 0.7rem;
+}
+
+.bic-form-docs {
+    flex-direction: row;
+    align-items: flex-end;
+    gap: 16px;
+}
+
+.bic-form-group label {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: #1976d2;
+    margin-bottom: 2px;
+    letter-spacing: 0.1px;
+}
+
+.bic-form-group .info {
+    color: #43a047;
+    font-size: 1rem;
+    margin-left: 4px;
+    cursor: help;
+}
+
+.bic-form-group .required {
+    color: #d32f2f;
+    font-size: 1rem;
+    margin-left: 2px;
+}
+
+.bic-form-group input,
+.bic-form-group select,
+.bic-form-group textarea {
+    padding: 10px 12px;
+    border: 1.5px solid #b6d4fe;
+    border-radius: 6px;
+    font-size: 1.04rem;
+    background: #fafdff;
+    transition: border 0.2s, box-shadow 0.2s;
+    box-shadow: 0 1px 2px rgba(25, 118, 210, 0.04);
+}
+
+.bic-form-group input:focus,
+.bic-form-group select:focus,
+.bic-form-group textarea:focus {
+    border: 2px solid #1976d2;
+    outline: none;
+    background: #e3f0fd;
+    box-shadow: 0 0 0 2px #b6d4fe44;
+}
+
+.bic-form-group textarea {
+    min-height: 70px;
+    resize: vertical;
+}
+
+.upload-btn {
+    background: linear-gradient(90deg, #e3f0fd 60%, #b6d4fe 100%);
+    color: #1976d2;
+    border: 1.5px solid #b6d4fe;
+    border-radius: 6px;
+    padding: 7px 18px;
+    font-size: 1.01rem;
+    cursor: pointer;
+    margin-left: 10px;
+    transition: background 0.2s, color 0.2s;
+    font-weight: 500;
+}
+
+.upload-btn:hover {
+    background: #d0e6fa;
+    color: #125ea2;
+}
+
+.char-count {
+    font-size: 0.92rem;
+    color: #888;
+    text-align: right;
+    margin-top: 2px;
+}
+
+.bic-form-note {
+    background: linear-gradient(90deg, #e3f2fd 60%, #b6d4fe 100%);
+    color: #1976d2;
+    font-size: 1.01rem;
+    border-radius: 6px;
+    padding: 10px 16px;
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+.bic-form-actions {
+    display: flex;
+    gap: 16px;
+    justify-content: flex-end;
+    margin-top: 18px;
+}
+
+.bic-form-actions .primary {
+    background: linear-gradient(90deg, #1976d2 60%, #43a047 100%);
+    color: #fff;
+    font-weight: 600;
+    padding: 10px 24px;
+    border: none;
+    border-radius: 6px;
+    font-size: 1.07rem;
+    box-shadow: 0 2px 8px rgba(25, 118, 210, 0.08);
+    transition: background 0.2s;
+}
+
+.bic-form-actions .primary:hover {
+    background: linear-gradient(90deg, #125ea2 60%, #357a38 100%);
+}
+
+.bic-form-actions .secondary {
+    background: linear-gradient(90deg, #43a047 60%, #1976d2 100%);
+    color: #fff;
+    font-weight: 600;
+    padding: 10px 24px;
+    border: none;
+    border-radius: 6px;
+    font-size: 1.07rem;
+    box-shadow: 0 2px 8px rgba(67, 160, 71, 0.08);
+    transition: background 0.2s;
+}
+
+.bic-form-actions .secondary:hover {
+    background: linear-gradient(90deg, #357a38 60%, #125ea2 100%);
+}
+
+.bic-form-actions button {
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1.07rem;
+    transition: background 0.2s;
+}
