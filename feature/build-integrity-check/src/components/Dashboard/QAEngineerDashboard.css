@@ -63,6 +63,43 @@
     box-shadow: 0 0 0 3px rgba(68, 114, 196, 0.1);
 }
 
+/* Validation Error Styles */
+.url-input.error {
+    border-color: #ef4444;
+    box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+}
+
+.url-input.error:focus {
+    border-color: #ef4444;
+    box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+}
+
+.testing-categories.error {
+    border: 2px solid #ef4444;
+    border-radius: 8px;
+    padding: 1rem;
+    background-color: #fef2f2;
+}
+
+.error-message {
+    color: #ef4444;
+    font-size: 0.75rem;
+    font-weight: 500;
+    margin-top: 0.25rem;
+    display: block;
+}
+
+.tests-error-message {
+    margin-bottom: 1rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    padding: 0.75rem;
+    background-color: #fef2f2;
+    border: 1px solid #fecaca;
+    border-radius: 6px;
+    text-align: center;
+}
+
 /* Testing Categories */
 .testing-categories {
     margin-bottom: 1.5rem;
@@ -174,12 +211,12 @@
     border-color: #4472C4;
 }
 
-.test-checkbox input[type="checkbox"]:checked + .checkmark {
+.test-checkbox input[type="checkbox"]:checked+.checkmark {
     background-color: #4472C4;
     border-color: #4472C4;
 }
 
-.test-checkbox input[type="checkbox"]:checked + .checkmark::after {
+.test-checkbox input[type="checkbox"]:checked+.checkmark::after {
     content: '✓';
     position: absolute;
     top: 50%;

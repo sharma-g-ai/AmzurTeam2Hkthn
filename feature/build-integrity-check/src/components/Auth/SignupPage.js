@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
+import AuthService from '../../services/authService';
 import './Auth.css';
 
 const SignupPage = () => {
@@ -69,6 +70,9 @@ const SignupPage = () => {
         try {
             // Simulate API call
             await new Promise(resolve => setTimeout(resolve, 1500));
+
+            // Store user credentials using AuthService
+            AuthService.storeUserCredentials(formData);
 
             // Store user info for login page
             const userInfo = {

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, Link, useLocation } from 'react-router-dom';
+import AuthService from '../../services/authService';
 import './Auth.css';
 
 const LoginPage = () => {
@@ -12,6 +13,7 @@ const LoginPage = () => {
     });
     const [loading, setLoading] = useState(false);
     const [successMessage, setSuccessMessage] = useState('');
+    const [errors, setErrors] = useState({});
 
     useEffect(() => {
         // Check if redirected from signup with success message
@@ -33,29 +35,46 @@ const LoginPage = () => {
             ...prev,
             [name]: type === 'checkbox' ? checked : value
         }));
+
+        // Clear specific error when user starts typing
+        if (errors[name]) {
+            setErrors(prev => ({
+                ...prev,
+                [name]: ''
+            }));
+        }
     };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         setLoading(true);
+        setErrors({});
 
         try {
+            // Validate login credentials using AuthService
+            const validation = AuthService.validateLogin(formData.email, formData.password);
+            
+            if (!validation.isValid) {
+                if (validation.field) {
+                    setErrors({ [validation.field]: validation.error });
+                } else {
+                    setErrors({ general: validation.error });
+                }
+                setLoading(false);
+                return;
+            }
+
             // Simulate API call
             await new Promise(resolve => setTimeout(resolve, 1000));
 
-            // Create user info object for welcome screen
-            const userInfo = {
-                name: location.state?.userInfo?.firstName
-                    ? `${location.state.userInfo.firstName} ${location.state.userInfo.lastName}`
-                    : formData.email.split('@')[0], // Use email username if no name available
-                email: formData.email,
-                company: location.state?.userInfo?.company || ''
-            };
+            // Create login session using AuthService
+            AuthService.createLoginSession(validation.user);
 
-            // Redirect to welcome screen after successful login
-            navigate('/welcome', { state: { userInfo } });
+            // Navigate to dashboard after successful login
+            navigate('/dashboard', { replace: true });
         } catch (error) {
             console.error('Login failed:', error);
+            setErrors({ general: 'Login failed. Please try again.' });
         } finally {
             setLoading(false);
         }
@@ -77,6 +96,12 @@ const LoginPage = () => {
                             </div>
                         )}
 
+                        {errors.general && (
+                            <div className="error-message">
+                                {errors.general}
+                            </div>
+                        )}
+
                         <form onSubmit={handleSubmit} className="login-form">
                             <div className="form-group">
                                 <label htmlFor="email">Email Address</label>
@@ -89,7 +114,11 @@ const LoginPage = () => {
                                     required
                                     placeholder="Enter your email"
                                     autoComplete="email"
+                                    className={errors.email ? 'error' : ''}
                                 />
+                                {errors.email && (
+                                    <span className="field-error">{errors.email}</span>
+                                )}
                             </div>
 
                             <div className="form-group">
@@ -104,6 +133,7 @@ const LoginPage = () => {
                                         required
                                         placeholder="Enter password"
                                         autoComplete="current-password"
+                                        className={errors.password ? 'error' : ''}
                                     />
                                     <button type="button" className="password-toggle">
                                         <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -112,6 +142,9 @@ const LoginPage = () => {
                                         </svg>
                                     </button>
                                 </div>
+                                {errors.password && (
+                                    <span className="field-error">{errors.password}</span>
+                                )}
                             </div>
 
                             <div className="form-options">

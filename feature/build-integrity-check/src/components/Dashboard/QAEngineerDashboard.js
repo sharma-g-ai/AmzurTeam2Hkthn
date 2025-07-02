@@ -5,6 +5,10 @@ import './QAEngineerDashboard.css';
 const QAEngineerDashboard = () => {
     const navigate = useNavigate();
     const [applicationUrl, setApplicationUrl] = useState('');
+    const [validationErrors, setValidationErrors] = useState({
+        applicationUrl: false,
+        tests: false
+    });
     const [selectedTests, setSelectedTests] = useState({
         functional: [],
         performance: [],
@@ -89,6 +93,14 @@ const QAEngineerDashboard = () => {
                 ? prev[category].filter(test => test !== testName)
                 : [...prev[category], testName]
         }));
+
+        // Clear tests validation error when user selects a test
+        if (validationErrors.tests) {
+            setValidationErrors(prev => ({
+                ...prev,
+                tests: false
+            }));
+        }
     };
 
     const handleSelectAll = (category) => {
@@ -116,17 +128,29 @@ const QAEngineerDashboard = () => {
 
     const handleProceed = () => {
         const totalSelected = getTotalSelectedTests();
-        if (totalSelected === 0) {
-            alert('Please select at least one test type to proceed.');
+        const isUrlValid = applicationUrl.trim() !== '';
+        const areTestsSelected = totalSelected > 0;
+
+        // Clear previous validation errors
+        setValidationErrors({
+            applicationUrl: false,
+            tests: false
+        });
+
+        // Check for validation errors
+        if (!isUrlValid || !areTestsSelected) {
+            setValidationErrors({
+                applicationUrl: !isUrlValid,
+                tests: !areTestsSelected
+            });
             return;
         }
 
         console.log('Selected tests:', selectedTests);
         console.log('Application URL:', applicationUrl);
-        alert(`Proceeding with ${totalSelected} selected tests for ${applicationUrl}`);
-        
-        // Navigate to next step or back to dashboard
-        navigate('/');
+
+        // Navigate to Test Configuration Dashboard
+        navigate('/test-configuration');
     };
 
     return (
@@ -147,15 +171,32 @@ const QAEngineerDashboard = () => {
                     <input
                         type="url"
                         id="applicationUrl"
-                        className="url-input"
+                        className={`url-input ${validationErrors.applicationUrl ? 'error' : ''}`}
                         placeholder="https://your-application-url.com"
                         value={applicationUrl}
-                        onChange={(e) => setApplicationUrl(e.target.value)}
+                        onChange={(e) => {
+                            setApplicationUrl(e.target.value);
+                            // Clear validation error when user starts typing
+                            if (validationErrors.applicationUrl) {
+                                setValidationErrors(prev => ({
+                                    ...prev,
+                                    applicationUrl: false
+                                }));
+                            }
+                        }}
                     />
+                    {validationErrors.applicationUrl && (
+                        <span className="error-message">Please enter a valid application URL</span>
+                    )}
                 </div>
 
                 {/* Testing Categories */}
-                <div className="testing-categories">
+                <div className={`testing-categories ${validationErrors.tests ? 'error' : ''}`}>
+                    {validationErrors.tests && (
+                        <div className="error-message tests-error-message">
+                            Please select at least one test type to proceed
+                        </div>
+                    )}
                     {Object.entries(testingCategories).map(([categoryKey, category]) => (
                         <div key={categoryKey} className="testing-category">
                             <div className="category-header">

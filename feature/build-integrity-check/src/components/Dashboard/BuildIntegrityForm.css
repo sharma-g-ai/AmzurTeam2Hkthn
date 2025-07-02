@@ -17,6 +17,7 @@
   align-items: center;
   gap: 12px;
   position: relative;
+  min-height: 64px;
 }
 
 .form-header .back-button {
@@ -33,6 +34,9 @@
   gap: 4px;
   position: absolute;
   left: 24px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
 }
 
 .form-header .back-button:hover {
@@ -49,13 +53,16 @@
   justify-content: center;
   font-size: 14px;
   font-weight: bold;
-  margin-left: 60px; /* Make space for back button */
+  margin-left: 180px;
+  /* Increased space to prevent overlap */
+  flex-shrink: 0;
 }
 
 .form-header h1 {
   font-size: 20px;
   font-weight: 500;
   margin: 0;
+  white-space: nowrap;
 }
 
 .form-content {
@@ -145,12 +152,13 @@
   display: flex;
   gap: 12px;
   align-items: flex-start;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
 }
 
 .sdlc-documents-container select {
   flex: 1;
   min-width: 250px;
+  max-width: 300px;
 }
 
 .file-upload-container {
@@ -158,6 +166,7 @@
   flex-direction: column;
   gap: 8px;
   min-width: 200px;
+  flex: 0 0 auto;
 }
 
 .file-input {
@@ -530,6 +539,7 @@
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
@@ -540,12 +550,15 @@
     transform: scale(0.3);
     opacity: 0;
   }
+
   50% {
     transform: scale(1.05);
   }
+
   70% {
     transform: scale(0.9);
   }
+
   100% {
     transform: scale(1);
     opacity: 1;
@@ -585,6 +598,7 @@
     opacity: 0;
     transform: translateY(20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -602,8 +616,6 @@
   overflow: hidden;
   position: relative;
   animation: slideInUp 0.3s ease;
-  display: flex;
-  flex-direction: column;
 }
 
 .document-detail-header {
@@ -743,24 +755,24 @@
     max-width: 95%;
     margin: 20px;
   }
-  
+
   .document-detail-header {
     padding: 16px 20px;
   }
-  
+
   .document-detail-content {
     padding: 20px;
     gap: 20px;
   }
-  
+
   .document-name {
     font-size: 16px;
   }
-  
+
   .document-detail-actions {
     flex-direction: column;
   }
-  
+
   .document-detail-buttons {
     flex-direction: column;
   }
@@ -981,37 +993,37 @@
     min-height: 500px;
     max-height: 85vh;
   }
-  
+
   .documents-modal-header {
     padding: 16px 20px;
   }
-  
+
   .documents-modal-content {
     padding: 20px;
   }
-  
+
   .documents-list {
     max-height: 300px;
     padding-right: 4px;
   }
-  
+
   .documents-list::-webkit-scrollbar {
     width: 4px;
   }
-  
+
   .document-item {
     padding: 12px;
   }
-  
+
   .document-icon {
     font-size: 20px;
     margin-right: 12px;
   }
-  
+
   .document-title {
     font-size: 15px;
   }
-  
+
   .document-description {
     font-size: 13px;
   }
@@ -1316,7 +1328,7 @@
   .email-content {
     padding: 16px;
   }
-  
+
   .send-email-btn {
     align-self: stretch;
     text-align: center;
@@ -1448,7 +1460,7 @@
   transition: all 0.2s ease;
 }
 
-.checkbox-input:checked + .checkbox-label .checkmark {
+.checkbox-input:checked+.checkbox-label .checkmark {
   background: #007bff;
   border-color: #007bff;
 }
@@ -1517,27 +1529,27 @@
     width: 95%;
     max-height: 95vh;
   }
-  
+
   .recommended-testing-header {
     padding: 16px 20px;
   }
-  
+
   .recommended-testing-title {
     font-size: 18px;
   }
-  
+
   .recommended-testing-content {
     padding: 20px;
   }
-  
+
   .testing-type-item {
     padding: 12px;
   }
-  
+
   .recommended-testing-buttons {
     flex-direction: column;
   }
-  
+
   .recommended-testing-buttons .modal-btn {
     width: 100%;
   }
@@ -1560,4 +1572,104 @@
 
 .recommended-testing-content::-webkit-scrollbar-thumb:hover {
   background: #a1a1a1;
+}
+
+/* Responsive Design Improvements */
+@media (max-width: 1024px) {
+  .build-integrity-form-container {
+    max-width: 95%;
+    margin: 20px auto;
+  }
+
+  .form-header {
+    padding: 16px 20px;
+  }
+
+  .form-header .back-button {
+    left: 20px;
+  }
+
+  .form-header-icon {
+    margin-left: 160px;
+  }
+
+  .form-content {
+    padding: 24px 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .build-integrity-form-container {
+    margin: 10px;
+    border-radius: 8px;
+  }
+
+  .form-header {
+    padding: 12px 16px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+    min-height: auto;
+  }
+
+  .form-header .back-button {
+    position: static;
+    transform: none;
+    margin-bottom: 8px;
+    align-self: flex-start;
+  }
+
+  .form-header-icon {
+    margin-left: 0;
+    margin-right: 8px;
+  }
+
+  .form-header h1 {
+    font-size: 18px;
+  }
+
+  .form-content {
+    padding: 20px 16px;
+  }
+
+  .sdlc-documents-container {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .sdlc-documents-container select {
+    min-width: auto;
+    max-width: none;
+  }
+
+  .file-upload-container {
+    min-width: auto;
+  }
+
+  .button-group {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .button-group .btn {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .form-header {
+    padding: 10px 12px;
+  }
+
+  .form-content {
+    padding: 16px 12px;
+  }
+
+  .form-group {
+    margin-bottom: 20px;
+  }
+
+  .version-control-group {
+    margin-bottom: 12px;
+  }
 }
